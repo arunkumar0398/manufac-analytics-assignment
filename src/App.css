@@ -1,3 +1,36 @@
 .App {
   text-align: center;
 }
+
+#Crop--maxProd--minProd{
+  font-family: Verdana, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 600px;
+  margin: 10px auto;
+  margin-top: 30px;
+}
+
+#Crop--maxProd--minProd td, #Crop--maxProd--minProd th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#Crop--maxProd--minProd thead tr th:nth-child(2), #Crop--maxProd--minProd thead tr th:nth-child(3) {
+  width: 200px;
+} 
+
+#Crop--maxProd--minProd tr:nth-child(even){background-color: #f2f2f2;}
+
+#Crop--maxProd--minProd tr:hover {background-color: #ddd;}
+
+#Crop--maxProd--minProd th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #6994f0;
+  color: white;
+}
+
+#Crop--maxProd--minProd thead tr th, #Crop--maxProd--minProd tbody tr {
+  text-align: center;
+}
