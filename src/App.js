@@ -1,6 +1,7 @@
 import './App.css';
 import { Table } from '@mantine/core';
 import { calculateMaxMinCrop } from './utils/calculateMaxMinCrop';
+import { getAvgYieldAndCultivation } from './utils/getAvgYieldAndCultivation';
 
 function App() {
 
@@ -9,6 +10,14 @@ function App() {
       <Table.Td>{cropData.Year}</Table.Td>
       <Table.Td>{cropData.CropWithMaxProduction}</Table.Td>
       <Table.Td>{cropData.CropWithMinProduction}</Table.Td>
+    </Table.Tr>
+  ));
+
+  const avgYieldAndCultivation = getAvgYieldAndCultivation().map((cropData, index) => (
+    <Table.Tr key={cropData.CropName}>
+      <Table.Td>{cropData.CropName}</Table.Td>
+      <Table.Td>{cropData.AverageYield}</Table.Td>
+      <Table.Td>{cropData.AverageCultivationArea}</Table.Td>
     </Table.Tr>
   ));
 
@@ -25,7 +34,15 @@ function App() {
         <Table.Tbody>{maxMinCrops}</Table.Tbody>
       </Table>
 
-      <Table>
+      <Table striped highlightOnHover withTableBorder withColumnBorders id="Crop--avgYield">
+        <Table.Thead>
+          <Table.Tr>
+            <Table.Th>Crop</Table.Th>
+            <Table.Th>Average Yield of the Crop between 1950-2020</Table.Th>
+            <Table.Th>Average Cultivation Area of the Crop between 1950-2020</Table.Th>
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>{avgYieldAndCultivation}</Table.Tbody>
       </Table>
     </>
   );
