@@ -1,5 +1,5 @@
 import './App.css';
-import { Table } from '@mantine/core';
+import { Table, Title } from '@mantine/core';
 import { calculateMaxMinCrop } from './utils/calculateMaxMinCrop';
 import { getAvgYieldAndCultivation } from './utils/getAvgYieldAndCultivation';
 
@@ -23,6 +23,7 @@ function App() {
 
   return (
     <>
+      <Title order={1} className='title--maxmincrop'>Crops with maximum and minimum production between the year 1950-2020</Title>
       <Table striped highlightOnHover withTableBorder withColumnBorders id='Crop--maxProd--minProd'>
         <Table.Thead>
           <Table.Tr>
@@ -34,6 +35,7 @@ function App() {
         <Table.Tbody>{maxMinCrops}</Table.Tbody>
       </Table>
 
+      <Title order={1} className='title--avgyield'>Average Yield and Cultivation of Crop between the year 1950-2020</Title>
       <Table striped highlightOnHover withTableBorder withColumnBorders id="Crop--avgYield">
         <Table.Thead>
           <Table.Tr>

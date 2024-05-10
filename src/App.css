@@ -7,12 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.title--maxmincrop, .title--avgyield {
+  width: 700px;
+  text-align: center;
+  margin: 10px auto;
+}
+
 #Crop--maxProd--minProd{
   font-family: Verdana, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 600px;
   margin: 10px auto;
   margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 #Crop--maxProd--minProd td, #Crop--maxProd--minProd th {
@@ -72,7 +79,7 @@ body {
   border-collapse: collapse;
   width: 600px;
   margin: 10px auto;
-  margin-top: 50px;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 
