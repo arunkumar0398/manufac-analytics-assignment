@@ -1,0 +1,47 @@
+name: Dependency update validation
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "yarn.lock"
+      - "package.json"
+      - ".github/workflows/dependabot-validation.yml"
+  push:
+    branches:
+      - "fix/dependabot-critical-alerts"
+    paths:
+      - "yarn.lock"
+      - "package.json"
+      - ".github/workflows/dependabot-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: Enable Yarn Classic
+        run: |
+          corepack enable
+          corepack prepare yarn@1.22.22 --activate
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Test
+        run: yarn test --watchAll=false
